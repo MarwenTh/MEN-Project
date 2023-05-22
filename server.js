@@ -8,10 +8,11 @@ const productRouter = require("./routes/product");
 const orderRouter = require("./routes/order");
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 mongoose
-  .connect("mongodb://localhost:27017/projectNermine", {
+  .connect("mongodb://localhost:27017/Projet", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

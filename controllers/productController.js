@@ -1,8 +1,8 @@
-const product = require("../models/product");
+const Product = require("../models/product");
 
 exports.getProducts = async (req, res) => {
   try {
-    const products = await product.find();
+    const products = await Product.find();
     res.json(products);
   } catch (error) {
     res.status(500).json({ error: "Failed to retrieve products" });
@@ -10,7 +10,7 @@ exports.getProducts = async (req, res) => {
 };
 
 exports.addProduct = (req, res) => {
-  const newProduct = new product({
+  const newProduct = new Product({
     name: req.body.name,
     price: req.body.price,
     quantity: req.body.quantity,
@@ -21,7 +21,7 @@ exports.addProduct = (req, res) => {
 };
 
 exports.updateProduct = async (req, res) => {
-  const updateProduct = await product.findByIdAndUpdate(
+  const updateProduct = await Product.findByIdAndUpdate(
     req.params.id,
     {
       name: req.body.name,
@@ -35,11 +35,11 @@ exports.updateProduct = async (req, res) => {
 };
 
 exports.deleteProduct = async (req, res) => {
-  const deleteProduct = await product.findByIdAndDelete(req.params.id);
+  const deleteProduct = await Product.findByIdAndDelete(req.params.id);
   res.json(deleteProduct);
 };
 
 exports.getProductById = async (req, res) => {
-  const getProduct = await product.findById(req.params.id);
+  const getProduct = await Product.findById(req.params.id);
   res.json(getProduct);
 };
