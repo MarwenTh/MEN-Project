@@ -23,9 +23,9 @@ mongoose
     console.log(err);
   });
 
-app.use("/customer", customerRouter);
-app.use("/product", productRouter);
-app.use("/order", orderRouter);
+app.use("/api/customer", customerRouter);
+app.use("/api/product", productRouter);
+app.use("/api/order", orderRouter);
 
 app.listen(4000, () => {
   console.log("Server started on port 4000");
