@@ -9,7 +9,7 @@ const orderRouter = require("./routes/order");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors()); // to prevent cors errors, open access to all origins (not secure) or specify the origins you want to allow access to (secure)
 
 mongoose
   .connect("mongodb://localhost:27017/Projet", {
